@@ -1,1 +1,1 @@
-# binary-arithmetic
+# bit-manipulation
