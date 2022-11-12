@@ -29,14 +29,18 @@ xor은 1인 부분만 반전시키는 것이라고 생각할 수 있다.
 
 #if 0
 
-static inline
-void swap(u32* a, u32* b) {
+void swap(u32* restrict a, u32* restrict b) {
 	*a ^= *b;
 	*b ^= *a;
 	*a ^= *b;
 
 	// a = b ^ a ^ a
 	// b = a ^ b ^ b
+}
+
+/* 위의 swap 함수와 같다 */
+void swap2(u32* restrict a, u32* restrict b) {
+	*a ^= *b ^= *a ^= *b;
 }
 
 int main() {
